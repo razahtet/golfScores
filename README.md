@@ -9,5 +9,7 @@ Uses linear regression based on the last # of scores, with 10 being the recommen
 --- Based on how hard the golf courses are
 --- Based on how many days they practice putting, chipping, and on the range, individually
 --- Include any other ideas you think that are suitable for predicting golf scores
+# This is a client-side project right now
+- Later, I would like to make a server-side project about this with accounts
 
  
