@@ -1,0 +1,41 @@
+body {
+  background-color: darkgreen;
+  color: white;
+  font-family: cursive;
+}
+
+.fButton {
+  display: block;
+  
+}
+
+.kd {
+  display: inline-block;
+}
+
+.dateP, .scoresS, .endStuff {
+  display: inline-block;
+}
+
+.pScore {
+  margin-left: 3%;
+  color: yellow;
+}
+
+.quesT {
+  display: inline-block;
+  background-color: gray;
+  color: white;
+}
+
+.quesT:hover {
+  color: aqua;
+}
+
+.facT {
+  margin-left: 20%;
+}
+
+.practiceC {
+  display: inline-block;
+}
