@@ -39,3 +39,219 @@ body {
 .practiceC {
   display: inline-block;
 }
+
+/* Practice Tracking Styles */
+.practice-section {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  padding: 20px;
+  margin: 20px 0;
+  border: 2px solid #4CAF50;
+}
+
+.section-title {
+  color: #90EE90;
+  margin-top: 0;
+  margin-bottom: 15px;
+  text-align: center;
+  font-size: 1.3em;
+}
+
+.practice-toggle {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.practice-toggle input[type="checkbox"] {
+  margin-right: 10px;
+  transform: scale(1.2);
+}
+
+.practice-toggle label {
+  font-size: 1.1em;
+  color: #FFFF99;
+  cursor: pointer;
+}
+
+.practice-details {
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+}
+
+.practice-details.show {
+  opacity: 1;
+  max-height: 1000px;
+}
+
+.practice-field {
+  margin-bottom: 20px;
+  padding: 15px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  border-left: 4px solid #90EE90;
+}
+
+.practice-field label {
+  display: block;
+  color: #FFFF99;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.field-subtitle {
+  color: #90EE90;
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-size: 1.1em;
+}
+
+.number-input {
+  width: 80px;
+  padding: 8px;
+  border: 2px solid #4CAF50;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #333;
+  font-size: 1em;
+}
+
+.checkbox-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.checkbox-item {
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 5px;
+  transition: background-color 0.2s ease;
+}
+
+.checkbox-item:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.checkbox-item input[type="checkbox"] {
+  margin-right: 10px;
+  transform: scale(1.1);
+}
+
+.checkbox-item label {
+  color: white;
+  cursor: pointer;
+  margin-bottom: 0;
+  font-weight: normal;
+}
+
+.practice-notes {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #4CAF50;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #333;
+  font-family: inherit;
+  font-size: 1em;
+  resize: vertical;
+  min-height: 80px;
+}
+
+.practice-notes::placeholder {
+  color: #666;
+  font-style: italic;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+  .checkbox-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .practice-section {
+    padding: 15px;
+    margin: 15px 0;
+  }
+  
+  .number-input {
+    width: 100px;
+  }
+}
+
+/* Enhanced button styles */
+.fButton {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 1.1em;
+  border-radius: 8px;
+  cursor: pointer;
+  margin: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.fButton:hover {
+  background-color: #45a049;
+  transform: translateY(-2px);
+}
+
+/* Improved form styling */
+input[type="number"], input[type="date"] {
+  padding: 8px;
+  border: 2px solid #4CAF50;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #333;
+  margin: 5px;
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 5px;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+/* Practice Summary Styles */
+.practice-summary {
+  background-color: rgba(144, 238, 144, 0.1);
+  border: 2px solid #90EE90;
+  border-radius: 10px;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.summary-title {
+  color: #90EE90;
+  margin-top: 0;
+  margin-bottom: 15px;
+  text-align: center;
+  font-size: 1.2em;
+}
+
+.summary-item {
+  color: white;
+  margin: 10px 0;
+  padding: 8px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 5px;
+  border-left: 3px solid #FFFF99;
+}
+
+.summary-item strong {
+  color: #FFFF99;
+}

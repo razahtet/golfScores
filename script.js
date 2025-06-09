@@ -28,35 +28,183 @@ function goSep() {
   interactP.appendChild(factorsDiv);
   factorsDiv.classList.add("kd");
   factorsDiv.classList.add("facT");
-  //practiceAverage
-  let practicePart = document.createElement("div");
-  factorsDiv.appendChild(practicePart);
-  let practiceT = document.createElement("h3");
-  practicePart.appendChild(practiceT);
-  practiceT.classList.add("practiceC");
-  practiceT.innerHTML = "Practice: "
+  //Practice Tracking Section
+  let practiceSection = document.createElement("div");
+  factorsDiv.appendChild(practiceSection);
+  practiceSection.classList.add("practice-section");
+  
+  let practiceTitle = document.createElement("h3");
+  practiceSection.appendChild(practiceTitle);
+  practiceTitle.innerHTML = "Practice Tracking";
+  practiceTitle.classList.add("section-title");
+  
+  // Practice checkbox to show/hide practice fields
+  let practiceToggle = document.createElement("div");
+  practiceSection.appendChild(practiceToggle);
+  practiceToggle.classList.add("practice-toggle");
+  
   let practiceCheck = document.createElement("input");
-  practicePart.appendChild(practiceCheck);
-  practiceCheck.classList.add("practiceC");
+  practiceToggle.appendChild(practiceCheck);
   practiceCheck.type = "checkbox";
-  let avBox;
+  practiceCheck.id = "practice-checkbox";
+  
+  let practiceLabel = document.createElement("label");
+  practiceToggle.appendChild(practiceLabel);
+  practiceLabel.setAttribute("for", "practice-checkbox");
+  practiceLabel.innerHTML = "I practiced before this round";
+  
+  // Practice details container (initially hidden)
+  let practiceDetails = document.createElement("div");
+  practiceSection.appendChild(practiceDetails);
+  practiceDetails.classList.add("practice-details");
+  practiceDetails.style.display = "none";
+  
+  // Practice frequency
+  let frequencyDiv = document.createElement("div");
+  practiceDetails.appendChild(frequencyDiv);
+  frequencyDiv.classList.add("practice-field");
+  
+  let frequencyLabel = document.createElement("label");
+  frequencyDiv.appendChild(frequencyLabel);
+  frequencyLabel.innerHTML = "Practice days per week:";
+  
+  let frequencyInput = document.createElement("input");
+  frequencyDiv.appendChild(frequencyInput);
+  frequencyInput.type = "number";
+  frequencyInput.min = "0";
+  frequencyInput.max = "7";
+  frequencyInput.classList.add("number-input");
+  
+  // Practice areas (checkboxes)
+  let practiceAreasDiv = document.createElement("div");
+  practiceDetails.appendChild(practiceAreasDiv);
+  practiceAreasDiv.classList.add("practice-field");
+  
+  let areasLabel = document.createElement("h4");
+  practiceAreasDiv.appendChild(areasLabel);
+  areasLabel.innerHTML = "What did you practice?";
+  areasLabel.classList.add("field-subtitle");
+  
+  let practiceAreas = [
+    { id: "short-game", label: "Short Game (Chipping, Pitching)" },
+    { id: "long-game", label: "Long Game (Driver, Woods)" },
+    { id: "iron-game", label: "Iron Game (Mid/Short Irons)" },
+    { id: "putting", label: "Putting" },
+    { id: "range", label: "Driving Range" },
+    { id: "course-management", label: "Course Management" },
+    { id: "bunker-play", label: "Bunker/Sand Play" }
+  ];
+  
+  let areasContainer = document.createElement("div");
+  practiceAreasDiv.appendChild(areasContainer);
+  areasContainer.classList.add("checkbox-grid");
+  
+  practiceAreas.forEach(area => {
+    let areaDiv = document.createElement("div");
+    areasContainer.appendChild(areaDiv);
+    areaDiv.classList.add("checkbox-item");
+    
+    let areaCheck = document.createElement("input");
+    areaDiv.appendChild(areaCheck);
+    areaCheck.type = "checkbox";
+    areaCheck.id = area.id;
+    areaCheck.classList.add("practice-area-check");
+    
+    let areaLabel = document.createElement("label");
+    areaDiv.appendChild(areaLabel);
+    areaLabel.setAttribute("for", area.id);
+    areaLabel.innerHTML = area.label;
+  });
+  
+  // Improvements section
+  let improvementsDiv = document.createElement("div");
+  practiceDetails.appendChild(improvementsDiv);
+  improvementsDiv.classList.add("practice-field");
+  
+  let improvementsLabel = document.createElement("h4");
+  improvementsDiv.appendChild(improvementsLabel);
+  improvementsLabel.innerHTML = "What did you improve on?";
+  improvementsLabel.classList.add("field-subtitle");
+  
+  let improvements = [
+    { id: "accuracy", label: "Accuracy" },
+    { id: "distance", label: "Distance" },
+    { id: "consistency", label: "Consistency" },
+    { id: "tempo", label: "Tempo/Rhythm" },
+    { id: "mental-game", label: "Mental Game" },
+    { id: "course-strategy", label: "Course Strategy" },
+    { id: "club-selection", label: "Club Selection" }
+  ];
+  
+  let improvementsContainer = document.createElement("div");
+  improvementsDiv.appendChild(improvementsContainer);
+  improvementsContainer.classList.add("checkbox-grid");
+  
+  improvements.forEach(improvement => {
+    let improvementDiv = document.createElement("div");
+    improvementsContainer.appendChild(improvementDiv);
+    improvementDiv.classList.add("checkbox-item");
+    
+    let improvementCheck = document.createElement("input");
+    improvementDiv.appendChild(improvementCheck);
+    improvementCheck.type = "checkbox";
+    improvementCheck.id = improvement.id;
+    improvementCheck.classList.add("improvement-check");
+    
+    let improvementLabel = document.createElement("label");
+    improvementDiv.appendChild(improvementLabel);
+    improvementLabel.setAttribute("for", improvement.id);
+    improvementLabel.innerHTML = improvement.label;
+  });
+  
+  // Practice duration
+  let durationDiv = document.createElement("div");
+  practiceDetails.appendChild(durationDiv);
+  durationDiv.classList.add("practice-field");
+  
+  let durationLabel = document.createElement("label");
+  durationDiv.appendChild(durationLabel);
+  durationLabel.innerHTML = "Practice session duration (minutes):";
+  
+  let durationInput = document.createElement("input");
+  durationDiv.appendChild(durationInput);
+  durationInput.type = "number";
+  durationInput.min = "0";
+  durationInput.max = "300";
+  durationInput.classList.add("number-input");
+  
+  // Practice notes
+  let notesDiv = document.createElement("div");
+  practiceDetails.appendChild(notesDiv);
+  notesDiv.classList.add("practice-field");
+  
+  let notesLabel = document.createElement("label");
+  notesDiv.appendChild(notesLabel);
+  notesLabel.innerHTML = "Additional practice notes:";
+  
+  let notesTextarea = document.createElement("textarea");
+  notesDiv.appendChild(notesTextarea);
+  notesTextarea.classList.add("practice-notes");
+  notesTextarea.placeholder = "Any specific drills, techniques, or observations from your practice session...";
+  notesTextarea.rows = "3";
+  
+  // Toggle practice details visibility
   practiceCheck.addEventListener("change", function() {
     if (this.checked) {
-      //open more
-      //how many days on average do you practice per week?
-      avBox = document.createElement("div");
-      practicePart.appendChild(avBox);
-      avBox.classList.add("averP")
-      avBox.innerHTML = "How many days per week on average do you practice?: ";
-      let averageInput = document.createElement("input");
-      avBox.appendChild(averageInput);
-      averageInput.type="number";
-      //avgSubmitButton
-      avgSubButton = document.createElement("button")
+      practiceDetails.style.display = "block";
+      practiceDetails.classList.add("show");
+      factorsDiv.style.display = 'block';
+      factorsDiv.style.marginLeft = '0';
+      // To prevent cutoff during transition
+      practiceDetails.style.overflow = 'visible';
     } else {
-      practicePart.removeChild(avBox);
+      practiceDetails.style.overflow = 'hidden';
+      practiceDetails.style.display = "none";
+      practiceDetails.classList.remove("show");
+      factorsDiv.style.display = 'inline-block';
+      factorsDiv.style.marginLeft = '20%';
     }
-  })
+  });
 
   //addingMoreScores
   let addB = document.createElement("button");
@@ -124,6 +272,10 @@ function goSep() {
       }
       
     }
+    
+    // Collect practice data
+    let practiceData = collectPracticeData();
+    
     //dates In Order
     let endB;
     if (scoresArray.length > 1 && datesArray.length > 1) {
@@ -132,6 +284,12 @@ function goSep() {
       endB = "Please enter at least two scores!";
     }
     scoreText.innerHTML = endB;
+    
+    // Display practice summary if practice data was collected
+    if (practiceData.practiced) {
+      displayPracticeSummary(endDiv, practiceData);
+    }
+    
     endDiv.style.display = "block";
     //https://www.educba.com/regression-line-formula/
 
@@ -275,6 +433,109 @@ function minOrder(oriArray, array, toReturn, inArray) {
     return toReturn;
   } else {
     return minOrder(oriArray, array, toReturn, inArray);
+  }
+}
+
+// Function to collect practice data from the form
+function collectPracticeData() {
+  let practiceCheckbox = document.getElementById("practice-checkbox");
+  
+  if (!practiceCheckbox || !practiceCheckbox.checked) {
+    return { practiced: false };
+  }
+  
+  let practiceData = {
+    practiced: true,
+    frequency: 0,
+    duration: 0,
+    practiceAreas: [],
+    improvements: [],
+    notes: ""
+  };
+  
+  // Get frequency
+  let frequencyInput = document.querySelector(".practice-details .number-input");
+  if (frequencyInput && frequencyInput.value) {
+    practiceData.frequency = parseInt(frequencyInput.value);
+  }
+  
+  // Get duration
+  let durationInputs = document.querySelectorAll(".practice-details .number-input");
+  if (durationInputs.length > 1 && durationInputs[1].value) {
+    practiceData.duration = parseInt(durationInputs[1].value);
+  }
+  
+  // Get practice areas
+  let practiceAreaChecks = document.querySelectorAll(".practice-area-check:checked");
+  practiceAreaChecks.forEach(check => {
+    let label = document.querySelector(`label[for="${check.id}"]`);
+    if (label) {
+      practiceData.practiceAreas.push(label.innerHTML);
+    }
+  });
+  
+  // Get improvements
+  let improvementChecks = document.querySelectorAll(".improvement-check:checked");
+  improvementChecks.forEach(check => {
+    let label = document.querySelector(`label[for="${check.id}"]`);
+    if (label) {
+      practiceData.improvements.push(label.innerHTML);
+    }
+  });
+  
+  // Get notes
+  let notesTextarea = document.querySelector(".practice-notes");
+  if (notesTextarea && notesTextarea.value) {
+    practiceData.notes = notesTextarea.value;
+  }
+  
+  return practiceData;
+}
+
+// Function to display practice summary
+function displayPracticeSummary(parentDiv, practiceData) {
+  let summaryDiv = document.createElement("div");
+  parentDiv.appendChild(summaryDiv);
+  summaryDiv.classList.add("practice-summary");
+  
+  let summaryTitle = document.createElement("h3");
+  summaryDiv.appendChild(summaryTitle);
+  summaryTitle.innerHTML = "Practice Summary";
+  summaryTitle.classList.add("summary-title");
+  
+  if (practiceData.frequency > 0) {
+    let frequencyP = document.createElement("p");
+    summaryDiv.appendChild(frequencyP);
+    frequencyP.innerHTML = `<strong>Practice Frequency:</strong> ${practiceData.frequency} days per week`;
+    frequencyP.classList.add("summary-item");
+  }
+  
+  if (practiceData.duration > 0) {
+    let durationP = document.createElement("p");
+    summaryDiv.appendChild(durationP);
+    durationP.innerHTML = `<strong>Session Duration:</strong> ${practiceData.duration} minutes`;
+    durationP.classList.add("summary-item");
+  }
+  
+  if (practiceData.practiceAreas.length > 0) {
+    let areasP = document.createElement("p");
+    summaryDiv.appendChild(areasP);
+    areasP.innerHTML = `<strong>Practice Areas:</strong> ${practiceData.practiceAreas.join(", ")}`;
+    areasP.classList.add("summary-item");
+  }
+  
+  if (practiceData.improvements.length > 0) {
+    let improvementsP = document.createElement("p");
+    summaryDiv.appendChild(improvementsP);
+    improvementsP.innerHTML = `<strong>Improvements Focused On:</strong> ${practiceData.improvements.join(", ")}`;
+    improvementsP.classList.add("summary-item");
+  }
+  
+  if (practiceData.notes) {
+    let notesP = document.createElement("p");
+    summaryDiv.appendChild(notesP);
+    notesP.innerHTML = `<strong>Notes:</strong> ${practiceData.notes}`;
+    notesP.classList.add("summary-item");
   }
 }
 
